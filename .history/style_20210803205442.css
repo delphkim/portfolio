@@ -169,25 +169,9 @@ button {
   transition: all var(--animation-duration) ease;
 }
 .major__icon:hover i {
-  transform: rotate(-30deg) scale(1.1);
+  transform: rotate(30deg) scale(1.1);
   color: var(--color-dark-pink);
 }
 .school {
   display: flex;
-  align-items: center;
-}
-.school__description {
-  margin: 0 16px;
-  text-align: left;
-}
-.school__title,
-.school__years {
-  color: var(--color-dark-grey);
-}
-
-.school__name {
-  font-size: var(--font-small);
-}
-.school__years {
-  font-size: var(--font-micro);
 }

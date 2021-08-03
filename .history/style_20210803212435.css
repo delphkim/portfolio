@@ -169,7 +169,7 @@ button {
   transition: all var(--animation-duration) ease;
 }
 .major__icon:hover i {
-  transform: rotate(-30deg) scale(1.1);
+  transform: rotate(30deg) scale(1.1);
   color: var(--color-dark-pink);
 }
 .school {
