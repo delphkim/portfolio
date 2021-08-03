@@ -14,7 +14,7 @@
   --color-black: #000000;
   --color-green: #80deea;
   --color-sky-blue: #2979ff;
-  --color-dark-blue: rgb(31, 94, 204);
+  --color-dark-blue: #0e56ca;
   /* Font size */
   --font-large: 48px;
   --font-medium: 28px;
@@ -93,13 +93,13 @@ p {
   padding: 8px 12px;
   margin: 0 4px;
   cursor: pointer;
-  border-radius: var(--size-border-radius);
 }
 .navbar__menu__item:hover {
   background-color: var(--color-dark-blue);
 }
 .navbar__menu__item.active {
   border: 1px solid var(--color-white);
+  border-radius: var(--size-border-radius);
 }
 .home__avatar {
   width: 300px;
