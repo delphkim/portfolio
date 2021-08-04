@@ -341,12 +341,6 @@ button {
 .testimonials :nth-child(2) {
   flex-direction: row-reverse;
 }
-.testimonial:nth-child(odd) .testimonial__avatar {
-  margin-right: 32px;
-}
-.testimonial:nth-child(even) .testimonial__avatar {
-  margin-left: 32px;
-}
 .testimonial {
   margin: 32px 0;
   display: flex;
@@ -356,14 +350,15 @@ button {
   height: 150px;
   border-radius: 50%;
 }
+
 .testimonial__speech-bubble {
   background-color: var(--color-white);
   padding: 18px;
   border-radius: var(--size-border-radius);
 }
-.testimonial__speech-bubble p {
-  color: var(--color-light-grey);
+.testimonial__avatar:nth-child(odd) {
+  margin-right: 12px;
 }
-.testimonial__speech-bubble a {
-  color: var(--color-dark-blue);
+.testimonial__avatar:nth-child(even) {
+  margin-right: 12px;
 }

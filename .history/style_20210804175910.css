@@ -364,6 +364,3 @@ button {
 .testimonial__speech-bubble p {
   color: var(--color-light-grey);
 }
-.testimonial__speech-bubble a {
-  color: var(--color-dark-blue);
-}
