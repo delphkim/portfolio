@@ -391,9 +391,5 @@ button {
 }
 .contact__links a:hover i {
   transform: scale(1.2);
-  color: var(--color-pink);
-}
-
-.contact__links i {
-  transition: all var(--animation-duration) ease-in;
+  color: var(--color-yellow);
 }

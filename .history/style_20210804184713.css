@@ -387,13 +387,4 @@ button {
 
 .contact__links {
   font-size: var(--font-large);
-  margin: 24px 0;
-}
-.contact__links a:hover i {
-  transform: scale(1.2);
-  color: var(--color-pink);
-}
-
-.contact__links i {
-  transition: all var(--animation-duration) ease-in;
 }

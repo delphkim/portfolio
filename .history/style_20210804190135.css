@@ -393,7 +393,3 @@ button {
   transform: scale(1.2);
   color: var(--color-pink);
 }
-
-.contact__links i {
-  transition: all var(--animation-duration) ease-in;
-}

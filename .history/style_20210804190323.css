@@ -395,5 +395,5 @@ button {
 }
 
 .contact__links i {
-  transition: all var(--animation-duration) ease-in;
+  transiton: all var(--animation-duration) ease-in;
 }

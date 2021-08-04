@@ -394,6 +394,6 @@ button {
   color: var(--color-pink);
 }
 
-.contact__links i {
+.contact__links a {
   transition: all var(--animation-duration) ease-in;
 }
