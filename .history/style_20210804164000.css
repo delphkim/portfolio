@@ -266,6 +266,7 @@ button {
 .category__count {
   border-radius: 50%;
   background-color: var(--color-dark-green);
+  border: 1px solid var(--color-white);
   color: var(--color-white);
   width: 24px;
   height: 24px;

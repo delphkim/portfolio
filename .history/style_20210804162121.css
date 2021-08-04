@@ -13,7 +13,7 @@
   --color-orange: #feb546;
   --color-black: #000000;
   --color-green: #80deea;
-  --color-dark-green: #17b0bb;
+  --color-light-green: #00e1ff;
   --color-sky-blue: #2979ff;
   --color-dark-blue: rgb(31, 94, 204);
   /* Font size */
@@ -265,7 +265,7 @@ button {
 }
 .category__count {
   border-radius: 50%;
-  background-color: var(--color-dark-green);
+  background-color: var(--color-light-green);
   color: var(--color-white);
   width: 24px;
   height: 24px;
@@ -308,15 +308,9 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: all var(--animation-duration) ease-in;
   opacity: 0;
-  transform: translateY(-10px);
+  transiton: all var(--animation-duration) ease-in;
 }
-.project:hover .project__description {
-  opacity: 0.8;
-  transform: translateY(0);
-}
-
 .project__description h3 {
   color: var(--color-white);
 }
@@ -330,4 +324,7 @@ button {
   left: 50%;
   margin-left: -12px;
   margin-top: 8px;
+}
+.project:hover .project__description {
+  opacity: 0.5;
 }

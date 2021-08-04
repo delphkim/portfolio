@@ -13,7 +13,7 @@
   --color-orange: #feb546;
   --color-black: #000000;
   --color-green: #80deea;
-  --color-dark-green: #17b0bb;
+  --color-light-green: #1ad3e0;
   --color-sky-blue: #2979ff;
   --color-dark-blue: rgb(31, 94, 204);
   /* Font size */
@@ -265,7 +265,7 @@ button {
 }
 .category__count {
   border-radius: 50%;
-  background-color: var(--color-dark-green);
+  background-color: var(--color-dark-pink);
   color: var(--color-white);
   width: 24px;
   height: 24px;
