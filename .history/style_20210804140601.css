@@ -220,7 +220,7 @@ button {
   flex-basis: 40%;
 }
 .skill {
-  margin-bottom: 32px;
+  margin-bottom: 8px;
 }
 .skill__bar {
   width: 100%;
@@ -235,9 +235,4 @@ button {
 }
 .tools {
   background-color: var(--color-grey);
-}
-
-.tools,
-.etc {
-  padding: 20px;
 }
