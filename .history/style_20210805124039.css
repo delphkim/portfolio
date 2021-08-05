@@ -431,14 +431,10 @@ button {
     flex-direction: column;
   }
   .category__btn {
-    width: 60%;
+    /* width: 60%; */
   }
   .project {
     width: 100%;
     flex-grow: 1;
-  }
-  .testimonial__avatar {
-    width: 80px;
-    height: 80px;
   }
 }

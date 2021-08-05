@@ -427,18 +427,4 @@ button {
   .major {
     margin-bottom: 38px;
   }
-  .skillset {
-    flex-direction: column;
-  }
-  .category__btn {
-    width: 60%;
-  }
-  .project {
-    width: 100%;
-    flex-grow: 1;
-  }
-  .testimonial__avatar {
-    width: 80px;
-    height: 80px;
-  }
 }

@@ -432,6 +432,7 @@ button {
   }
   .category__btn {
     width: 60%;
+    /* text-align: center; */
   }
   .project {
     width: 100%;

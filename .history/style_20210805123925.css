@@ -430,15 +430,11 @@ button {
   .skillset {
     flex-direction: column;
   }
-  .category__btn {
-    width: 60%;
+  .catecory__btn {
+    flex-grow: 1;
   }
   .project {
     width: 100%;
     flex-grow: 1;
-  }
-  .testimonial__avatar {
-    width: 80px;
-    height: 80px;
   }
 }
