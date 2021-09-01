@@ -36,7 +36,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin: 0;
   cursor: default;
 }
@@ -81,11 +81,18 @@ button {
 /* Navbar */
 #navbar {
   display: flex;
+  position: fixed;
+  width: 100%;
   justify-content: space-between;
-  background-color: var(--color-sky-blue);
+  background-color: tranparent;
   align-items: center;
   color: var(--color-white);
   padding: 16px;
+  transition: all var(--animation-duration) ease-in-out;
+}
+#navbar.navbar--dark {
+  background-color: var(--color-sky-blue);
+  padding: 8px;
 }
 .navbar__logo {
   font-size: var(--font-medium);
@@ -122,6 +129,7 @@ button {
 #home {
   background: url(./imgs/homepage-background.png) center/cover no-repeat;
   padding: 40px;
+  padding-top: 120px;
   text-align: center;
 }
 .home__avatar {
@@ -329,7 +337,7 @@ button {
   color: var(--color-white);
 }
 .project__description h3:after {
-  content: "";
+  content: '';
   width: 24px;
   height: 2px;
   background-color: var(--color-dark-white);
