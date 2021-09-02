@@ -18,7 +18,7 @@ navbarMenu.addEventListener('click', (event) => {
   if (!link) {
     return;
   } else {
-    scrollIntoView(link);
+    scrollIntoViews(link);
   }
 });
 
@@ -28,7 +28,16 @@ homeContactBtn.addEventListener('click', (event) => {
   scrollIntoViews('#contact');
 });
 
-function scrollIntoView(selector) {
+//Make home slowly fade to transparent as the window scrolls down
+const home = document.querySelector('.home__container');
+const homeHeight = home.getBoundingClientRect().height;
+
+document.addEventListener('scroll', (event) => {
+  const value = 1 - window.scrollY / homeHeight;
+  home.style.opacity = value;
+});
+
+function scrollIntoViews(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
