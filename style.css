@@ -303,6 +303,12 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  opacity: 1;
+  transition: all var(--animation-duration) ease-in;
+}
+.work__projects.animi-out {
+  opacity: 0;
+  transform: scale(0.9) translateY(40px);
 }
 .project {
   width: 200px;
@@ -313,6 +319,9 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.project.invisible {
+  display: none;
 }
 
 .project__img {
