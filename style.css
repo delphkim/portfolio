@@ -93,7 +93,7 @@ button {
 }
 #navbar.navbar--dark {
   background-color: var(--color-sky-blue);
-  padding: 8px;
+  padding: 16px;
 }
 .navbar__logo {
   font-size: var(--font-medium);
@@ -347,17 +347,17 @@ button {
 }
 
 .project__description h3 {
-  color: var(--color-white);
+  color: var(--color-orange);
 }
 .project__description h3:after {
   content: '';
-  width: 24px;
+  width: 50px;
   height: 2px;
   background-color: var(--color-dark-white);
   display: block;
   position: relative;
   left: 50%;
-  margin-left: -12px;
+  transform: translateX(-50%);
   margin-top: 8px;
 }
 /* Testimonials */
@@ -457,6 +457,10 @@ button {
     text-align: center;
     width: 100%;
     display: none;
+  }
+  .navbar__menu.open {
+    display: block;
+    background-color: var(--color-sky-blue);
   }
   .about__majors {
     flex-direction: column;
