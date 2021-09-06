@@ -20,6 +20,7 @@ navbarMenu.addEventListener('click', (event) => {
   } else {
     navbarMenu.classList.remove('open');
     scrollIntoViews(link);
+    selectNavItem(target);
   }
 });
 
@@ -91,7 +92,72 @@ workBtnContainer.addEventListener('click', (event) => {
   }, 300);
 });
 
+//1. 모든 섹션 요소들과 navbar 메뉴 아이템들을 가지고 온다.
+//2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다.
+//3. 보여지는 섹션에 해당하는 메뉴 아이템들을 활성화 시킨다.
+const sectionIds = [
+  '#home',
+  '#about',
+  '#skills',
+  '#work',
+  '#testimonials',
+  '#contact',
+];
+const sections = sectionIds.map((sectionId) =>
+  document.querySelector(sectionId)
+);
+const navItems = sectionIds.map((sectionId) =>
+  document.querySelector(`[data-link="${sectionId}"]`)
+);
+let selectedNavIndex;
+let selectedNavItem = navItems[0];
+function selectNavItem(selected) {
+  selectedNavItem.classList.remove('active');
+  selectedNavItem = selected;
+  selectedNavItem.classList.add('active');
+}
 function scrollIntoViews(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => {
+    selectNavItem(navItems[sectionIds.indexOf(selector)]);
+  }, 600);
 }
+
+const observerOption = {
+  root: null,
+  rootMargin: '0px',
+  threshold: [0.2, 0.3],
+};
+const observerCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+      const index = sectionIds.indexOf(`#${entry.target.id}`);
+      const y = entry.boundingClientRect.y;
+      //scroll down -> page up -> next section selected
+      if (y < 0) {
+        selectedNavIndex = index + 1;
+      } else if (y >= 0) {
+        console.log(entry.target.id);
+        //scroll up -> page down -> previous section selected
+        selectedNavIndex = index - 1;
+      }
+
+      selectNavItem(navItems[selectedNavIndex]);
+    }
+  });
+};
+const observer = new IntersectionObserver(observerCallback, observerOption);
+
+sections.forEach((section) => observer.observe(section));
+window.addEventListener('wheel', () => {
+  if (window.scrollY === 0) {
+    selectedNavIndex = 0;
+  } else if (
+    Math.round(window.scrollY + window.innerHeight) ===
+    document.body.clientHeight
+  ) {
+    selectedNavIndex = navItems.length - 1;
+  }
+  selectNavItem(navItems[selectedNavIndex]);
+});
