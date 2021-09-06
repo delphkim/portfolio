@@ -92,9 +92,9 @@ workBtnContainer.addEventListener('click', (event) => {
   }, 300);
 });
 
-//1. 모든 섹션 요소들과 navbar 메뉴 아이템들을 가지고 온다.
-//2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다.
-//3. 보여지는 섹션에 해당하는 메뉴 아이템들을 활성화 시킨다.
+//1. get all sections and  navbar items.
+//2. using IntersectionObserver API,  obeserve every each section.
+//3. when being seen one of the sections, activate the menu item that related to it.
 const sectionIds = [
   '#home',
   '#about',
@@ -118,16 +118,16 @@ function selectNavItem(selected) {
 }
 function scrollIntoViews(selector) {
   const scrollTo = document.querySelector(selector);
-  scrollTo.scrollIntoView({ behavior: 'smooth' });
+  scrollTo.scrollIntoView({ behavior: 'smooth', block: 'center' });
   setTimeout(() => {
     selectNavItem(navItems[sectionIds.indexOf(selector)]);
-  }, 600);
+  }, 650);
 }
 
 const observerOption = {
   root: null,
   rootMargin: '0px',
-  threshold: [0.2, 0.3],
+  threshold: [0.2],
 };
 const observerCallback = (entries, observer) => {
   entries.forEach((entry) => {
@@ -137,8 +137,7 @@ const observerCallback = (entries, observer) => {
       //scroll down -> page up -> next section selected
       if (y < 0) {
         selectedNavIndex = index + 1;
-      } else if (y >= 0) {
-        console.log(entry.target.id);
+      } else {
         //scroll up -> page down -> previous section selected
         selectedNavIndex = index - 1;
       }
@@ -151,13 +150,15 @@ const observer = new IntersectionObserver(observerCallback, observerOption);
 
 sections.forEach((section) => observer.observe(section));
 window.addEventListener('wheel', () => {
-  if (window.scrollY === 0) {
+  if (window.scrollY <= 350) {
     selectedNavIndex = 0;
   } else if (
-    Math.round(window.scrollY + window.innerHeight) ===
-    document.body.clientHeight
+    Math.round(window.scrollY + window.innerHeight) >=
+    document.body.clientHeight - 300
   ) {
     selectedNavIndex = navItems.length - 1;
+  } else {
+    return;
   }
   selectNavItem(navItems[selectedNavIndex]);
 });
