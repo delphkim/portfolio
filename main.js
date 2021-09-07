@@ -115,13 +115,17 @@ function selectNavItem(selected) {
   selectedNavItem.classList.remove('active');
   selectedNavItem = selected;
   selectedNavItem.classList.add('active');
+  setTimeout(() => {
+    checkBothEnds();
+  }, 600);
 }
 function scrollIntoViews(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: 'smooth', block: 'center' });
   setTimeout(() => {
-    selectNavItem(navItems[sectionIds.indexOf(selector)]);
-  }, 650);
+    selectedNavIndex = sectionIds.indexOf(selector);
+    selectNavItem(navItems[selectedNavIndex]);
+  }, 600);
 }
 
 const observerOption = {
@@ -141,24 +145,55 @@ const observerCallback = (entries, observer) => {
         //scroll up -> page down -> previous section selected
         selectedNavIndex = index - 1;
       }
-
       selectNavItem(navItems[selectedNavIndex]);
     }
   });
 };
 const observer = new IntersectionObserver(observerCallback, observerOption);
-
+const contact = document.querySelector('#contact');
+const contactHeight = contact.getBoundingClientRect().height;
 sections.forEach((section) => observer.observe(section));
-window.addEventListener('wheel', () => {
-  if (window.scrollY <= 350) {
+document.addEventListener('wheel', () => {
+  checkBothEnds();
+});
+document.addEventListener('keydown', (event) => {
+  const key = event.key;
+
+  setTimeout(() => {
+    switch (key) {
+      case 'Home':
+        selectedNavIndex = 0;
+        selectNavItem(navItems[selectedNavIndex]);
+        break;
+      case 'End':
+        selectedNavIndex = navItems.length - 1;
+        selectNavItem(navItems[selectedNavIndex]);
+        break;
+      case 'PageUp':
+        checkBothEnds();
+        break;
+      case 'PageDown':
+        checkBothEnds();
+        break;
+      case 'ArrowDown':
+        checkBothEnds();
+        break;
+      case 'ArrowUp':
+        checkBothEnds();
+        break;
+    }
+  }, 350);
+});
+const checkBothEnds = () => {
+  if (window.scrollY < homeHeight * 0.3) {
     selectedNavIndex = 0;
   } else if (
     Math.round(window.scrollY + window.innerHeight) >=
-    document.body.clientHeight - 300
+    document.body.clientHeight - contactHeight * 0.5
   ) {
     selectedNavIndex = navItems.length - 1;
   } else {
     return;
   }
   selectNavItem(navItems[selectedNavIndex]);
-});
+};
